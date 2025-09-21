@@ -72,7 +72,7 @@ pet_adoption_website/
 └── README.md             # Documentação
 ```
 
-## 🗄️ Banco de Dados
+<!-- ## 🗄️ Banco de Dados
 
 ### Tabela `animais`
 ```sql
@@ -182,4 +182,4 @@ Projeto desenvolvido para fins educacionais e de demonstração. Livre para uso 
 ---
 
 **PetAmigo** - Conectando corações e transformando vidas através da adoção responsável. 🐕🐱❤️
-
+ -->
