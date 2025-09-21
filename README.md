@@ -4,7 +4,6 @@ Um site web completo e responsivo para cadastro e adoção de cães e gatos de r
 
 ## 🌐 Site Implantado
 
-**URL de Acesso:** https://8080-i05tgqvxnoikkhubazo99-e36a2d7b.manusvm.computer
 
 ## 📋 Funcionalidades
 
