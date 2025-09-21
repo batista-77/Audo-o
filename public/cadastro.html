@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Animal - PetAmigo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .form-section {
+            padding: 3rem 0;
+            background-color: var(--white);
+            min-height: calc(100vh - 140px);
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background-color: var(--background-light);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-input-label {
+            display: block;
+            padding: 0.8rem;
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: var(--background-light);
+        }
+
+        .file-input-label:hover {
+            border-color: var(--primary-color);
+            background-color: var(--secondary-color);
+        }
+
+        .file-input-label i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow);
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        @media screen and (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 2rem 1rem;
+                margin: 0 1rem;
+            }
+
+            .form-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🐾 PetAmigo</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#animais-disponiveis" class="nav-link">Animais Disponíveis</a>
+                </li>
+                <li class="nav-item">
+                    <a href="agendamento.html" class="nav-link">Agendar Consulta</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cadastro.html" class="nav-link active">Cadastrar Animal</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="form-section">
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h1>Cadastrar Animal</h1>
+                        <p>Ajude um animal a encontrar um lar. Preencha as informações abaixo.</p>
+                    </div>
+
+                    <form id="animal-form" action="process_animal.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nome">Nome do Animal <span class="required">*</span></label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="especie">Espécie <span class="required">*</span></label>
+                                <select id="especie" name="especie" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="cachorro">Cachorro</option>
+                                    <option value="gato">Gato</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="idade">Idade</label>
+                                <input type="text" id="idade" name="idade" placeholder="Ex: 2 anos, 6 meses">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="raca">Raça</label>
+                                <input type="text" id="raca" name="raca" placeholder="Ex: Vira-lata, Labrador">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pelagem">Pelagem</label>
+                                <input type="text" id="pelagem" name="pelagem" placeholder="Ex: Curta, Longa, Média">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="temperamento">Temperamento</label>
+                                <input type="text" id="temperamento" name="temperamento" placeholder="Ex: Dócil, Brincalhão, Tímido">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="descricao">Descrição</label>
+                                <textarea id="descricao" name="descricao" placeholder="Conte mais sobre o animal: personalidade, cuidados especiais, história..."></textarea>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="foto">Foto do Animal</label>
+                                <div class="file-input-wrapper">
+                                    <input type="file" id="foto" name="foto" class="file-input" accept="image/*">
+                                    <label for="foto" class="file-input-label">
+                                        <i class="fas fa-camera"></i>
+                                        <span>Clique para selecionar uma foto</span>
+                                        <small style="display: block; margin-top: 0.5rem; color: var(--text-light);">
+                                            Formatos aceitos: JPG, PNG, GIF (máx. 5MB)
+                                        </small>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-heart"></i> Cadastrar Animal
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🐾 PetAmigo</h3>
+                    <p>Conectando corações e transformando vidas através da adoção responsável.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html#animais-disponiveis">Animais Disponíveis</a></li>
+                        <li><a href="agendamento.html">Agendar Consulta</a></li>
+                        <li><a href="cadastro.html">Cadastrar Animal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PetAmigo. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Atualizar label do arquivo quando selecionado
+        document.getElementById('foto').addEventListener('change', function(e) {
+            const label = document.querySelector('.file-input-label span');
+            if (e.target.files.length > 0) {
+                label.textContent = e.target.files[0].name;
+            } else {
+                label.textContent = 'Clique para selecionar uma foto';
+            }
+        });
+    </script>
+</body>
+</html>
+

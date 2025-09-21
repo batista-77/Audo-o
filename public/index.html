@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetAmigo - Adoção de Cães e Gatos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🐾 Audoção</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#animais-disponiveis" class="nav-link">Animais Disponíveis</a>
+                </li>
+                <li class="nav-item">
+                    <a href="agendamento.html" class="nav-link">Agendar Consulta</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cadastro.html" class="nav-link">Cadastrar Animal</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Banner de Boas-vindas -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Encontre seu novo amigo aqui</h1>
+                <p>Conectamos corações e patas. Adote um animal de rua e transforme duas vidas: a sua e a dele.</p>
+                <a href="#animais-disponiveis" class="cta-button">Ver Animais Disponíveis</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero-pets.jpg" alt="Cães e gatos felizes" id="hero-img">
+            </div>
+        </section>
+
+        <!-- Seção de Animais Disponíveis -->
+        <section id="animais-disponiveis" class="animals-section">
+            <div class="container">
+                <h2>Nossos Amigos Esperando por Você</h2>
+                <div class="animals-grid" id="animals-container">
+                    <!-- Os cards dos animais serão carregados dinamicamente via PHP/JavaScript -->
+                    <div class="animal-card">
+                        <div class="card-image">
+                            <img src="images/sample-dog.jpg" alt="Cachorro">
+                        </div>
+                        <div class="card-content">
+                            <h3>Rex</h3>
+                            <p class="animal-info">
+                                <span class="age">2 anos</span> • 
+                                <span class="breed">Vira-lata</span>
+                            </p>
+                            <p class="temperament">Amigável, Brincalhão</p>
+                            <div class="card-actions">
+                                <button class="btn-primary" onclick="openModal('rex')">Ver Mais</button>
+                                <button class="btn-secondary">Adotar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animal-card">
+                        <div class="card-image">
+                            <img src="images/sample-cat.jpg" alt="Gato">
+                        </div>
+                        <div class="card-content">
+                            <h3>Luna</h3>
+                            <p class="animal-info">
+                                <span class="age">1 ano</span> • 
+                                <span class="breed">Siamês</span>
+                            </p>
+                            <p class="temperament">Tímida, Carinhosa</p>
+                            <div class="card-actions">
+                                <button class="btn-primary" onclick="openModal('luna')">Ver Mais</button>
+                                <button class="btn-secondary">Adotar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animal-card">
+                        <div class="card-image">
+                            <img src="images/sample-dog2.jpg" alt="Cachorro">
+                        </div>
+                        <div class="card-content">
+                            <h3>Bella</h3>
+                            <p class="animal-info">
+                                <span class="age">3 anos</span> • 
+                                <span class="breed">Labrador</span>
+                            </p>
+                            <p class="temperament">Dócil, Protetora</p>
+                            <div class="card-actions">
+                                <button class="btn-primary" onclick="openModal('bella')">Ver Mais</button>
+                                <button class="btn-secondary">Adotar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Quer ajudar mais animais?</h2>
+                <p>Cadastre um animal que precisa de um lar ou agende uma visita para conhecer nossos amigos.</p>
+                <div class="cta-buttons">
+                    <a href="cadastro.html" class="btn-primary">Cadastrar Animal</a>
+                    <a href="agendamento.html" class="btn-secondary">Agendar Visita</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🐾 Audoção</h3>
+                    <p>Conectando corações e transformando vidas através da adoção responsável.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="#animais-disponiveis">Animais Disponíveis</a></li>
+                        <li><a href="agendamento.html">Agendar Consulta</a></li>
+                        <li><a href="cadastro.html">Cadastrar Animal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PetAmigo. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para Ver Mais -->
+    <div id="animal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body">
+                <!-- Conteúdo do modal será carregado dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
